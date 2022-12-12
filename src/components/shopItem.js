@@ -7,6 +7,7 @@ const ShopItem = (props) => {
     return (
 
         <div className="shopItem">
+            {/* Find a way to send the item info to the item page */}
             <Link to={destination}>
             
                 <p>{props.name}</p>

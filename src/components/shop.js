@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
 import ShopItem from "./shopItem";
 
 const Shop = () => {
+
+    // Put uniqid in each shopItem object and make the shopItem key=uniqid
 
     const shopItems = [
         {
