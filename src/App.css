@@ -1,0 +1,50 @@
+/* Group Attributes */
+.homepage, .navbar, .shop, .item {
+    padding: 1rem;
+}
+
+/* Single Attributes */
+body {
+    margin: 0;
+}
+.shoppingApp {
+    width: 100vw;
+    height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 0;
+}
+
+/* Shop Page */
+.shop {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.shopItem {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    border: 1px solid blueviolet
+}
+.shopItem a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Item Page */
+.itemPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.itemPage .item-specific-information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.itemPage .add-to-cart input {
+    width: 2rem;
+}
