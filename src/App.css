@@ -157,6 +157,11 @@ body {
 .cartItem p {
     text-align: center;
 }
+.cartItem .removeBtn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
 .cartPricing {
     padding: 1rem;
     margin-top: 1rem;

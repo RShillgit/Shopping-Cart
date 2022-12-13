@@ -7,6 +7,10 @@ const Cart = (props) => {
     )
     const [pricing, setPricing] = useState()
 
+    const removeItem = (obj) => {
+        console.log(obj)
+    }
+
     // On page render
     useEffect(() => {
 
@@ -32,6 +36,9 @@ const Cart = (props) => {
                         <img src={item.src} alt={item.name} />
                         <p>Price: ${item.price} each</p>
                         <p>Quantity: {item.quantity}</p>
+                        <div className="removeBtn">
+                            <button onClick={() => removeItem(item)}>Remove Item</button>
+                        </div>
                     </div>
             )}))
 

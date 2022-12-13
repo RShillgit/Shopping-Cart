@@ -22,18 +22,17 @@ const App = () => {
     const itemInCart = cartItems.some(cartItem => cartItem.name === item.name);
     if (itemInCart) {
 
-      // FIX LOGIC
       for(let i = 0; i< cartItems.length; i++) {
-        setCartItems(cItem => 
-          cItem.map(obj => {
-            if (obj.name === item.name) {
-              console.log(obj.quantity)
-              console.log( item.quantity)
-              return {...obj, quantity: (obj.quantity + item.quantity)}
-            }
-
-            return obj;
-        }))
+        if(cartItems[i].name === item.name) {
+          setCartItems(cItem => 
+            cItem.map(obj => {
+              if (obj.name === item.name) {
+                return {...obj, quantity: (obj.quantity + item.quantity)}
+              }
+  
+              return obj;
+          }))
+        }
       }
     }
     // Else Concatenate item to cart items
