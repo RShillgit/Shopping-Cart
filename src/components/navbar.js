@@ -1,10 +1,19 @@
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = (props) => {
+    
     return (
         <div className="navbar">
-            <Link to="/">Homepage</Link>
-            <Link to="/shop">Shop</Link>
+            <div className="navbar-left">
+                <Link to="/">Homepage</Link>
+                <Link to="/shop">Shop</Link>
+            </div>
+
+            <div className="navbar-right">
+                <Link to="/cart">Cart</Link>
+                <p>{props.cart}</p>
+            </div>
+
         </div>
     )
 }
