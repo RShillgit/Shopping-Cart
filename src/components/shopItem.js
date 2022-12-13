@@ -7,12 +7,15 @@ const ShopItem = (props) => {
     return (
 
         <div className="shopItem">
-            {/* Find a way to send the item info to the item page */}
-            <Link to={destination}>
-            
-                <p>{props.name}</p>
-                <p>${props.price}</p>
-            </Link>
+
+            <div className="shopItemInfo">
+                <Link to={destination}>
+                    <img src={props.src} alt={props.name}></img>
+                    <p>{props.name}</p>
+                    <p>${props.price}</p>
+                </Link>
+            </div>
+
         </div>        
     )
 }

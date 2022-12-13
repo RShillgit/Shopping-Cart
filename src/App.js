@@ -6,6 +6,7 @@ import Shop from './components/shop';
 import ItemPage from './components/itemPage';
 import Cart from './components/cart';
 import { useState } from 'react';
+import githubMark from './images/githubMark.png';
 
 const App = () => {
 
@@ -21,10 +22,13 @@ const App = () => {
     const itemInCart = cartItems.some(cartItem => cartItem.name === item.name);
     if (itemInCart) {
 
+      // FIX LOGIC
       for(let i = 0; i< cartItems.length; i++) {
         setCartItems(cItem => 
           cItem.map(obj => {
             if (obj.name === item.name) {
+              console.log(obj.quantity)
+              console.log( item.quantity)
               return {...obj, quantity: (obj.quantity + item.quantity)}
             }
 
@@ -50,6 +54,12 @@ const App = () => {
             <Route path='/shop/:id' element={<ItemPage addToCart={handleAddToCart} />}/>
             <Route path='/cart' element={<Cart cartItems={cartItems}/>} />
           </Routes>
+
+          <div className='footer'>
+            <a id='github' href='https://github.com/RShillgit/shopping-cart'>
+              <img src={githubMark} alt="RShillgit"/>
+            </a>
+          </div>
         
       </BrowserRouter>
     </div>

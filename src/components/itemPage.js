@@ -1,5 +1,12 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import uniqid from "uniqid";
+import blackT from '../images/black-shirt.png';
+import grayT from '../images/gray-shirt.png'
+import blackPolo from '../images/black-polo.png';
+import orangeT from '../images/orange-shirt.png'
+import whiteTshirt from '../images/white-shirt.png';
+import jeans from '../images/jeans.png';
 
 const ItemPage = (props) => {
 
@@ -18,34 +25,40 @@ const ItemPage = (props) => {
     */
     const shopItems = [
         {
-            name: 'Item1',
+            name: 'Black T-Shirt',
             price: 25,
-            src: '',
+            src: blackT,
+            id: uniqid(),
         },
         {
-            name: 'Item2',
+            name: 'Gray T-Shirt',
             price: 30,
-            src: '',
+            src: grayT,
+            id: uniqid(),
         },
         {
-            name: 'Item3',
+            name: 'Black Polo',
             price: 35,
-            src: '',
+            src: blackPolo,
+            id: uniqid(),
         },
         {
-            name: 'Item4',
+            name: 'Orange T-Shirt',
             price: 15,
-            src: '',
+            src: orangeT,
+            id: uniqid(),
         },
         {
-            name: 'Item5',
+            name: 'White T-Shirt',
             price: 45,
-            src: '',
+            src: whiteTshirt,
+            id: uniqid(),
         },
         {
-            name: 'Item6',
+            name: 'Jeans',
             price: 50,
-            src: '',
+            src: jeans,
+            id: uniqid(),
         }
     ];
 
@@ -68,7 +81,7 @@ const ItemPage = (props) => {
     return (
         <div className="itemPage">
 
-            <img alt="item"/>
+            <img src={selectedItem.src} alt="item"/>
 
             <div className="item-specific-information">
                 <h2>{id}</h2>

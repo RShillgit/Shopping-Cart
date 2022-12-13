@@ -24,25 +24,26 @@ const Cart = (props) => {
             const shipping = 9.99
 
             // Real total
-            const total = (subTotal + tax + shipping);
+            const total = (subTotal + tax + shipping).toFixed(2);
 
             setCartInfo(props.cartItems.map(item => {
                 return (
-                    <div className="allCartItems" key={item.name}>
-                        <div className="cartItem">
-                            <p>{item.name}</p>
-                            <p>{item.price}</p>
-                            <p>{item.quantity}</p>
-                        </div>
+                    <div className="cartItem" key={item.name}>
+                        <img src={item.src} alt={item.name} />
+                        <p>Price: ${item.price} each</p>
+                        <p>Quantity: {item.quantity}</p>
                     </div>
             )}))
 
             setPricing(                        
                 <div className="cartPricing">
-                    <p>Subtotal: ${subTotal}</p>
-                    <p>Tax: ${taxString}</p>
-                    <p>Shipping: ${shipping}</p>
-                    <p>Total: ${total}</p>
+                    <div className="pricingInfo">
+                        <p>Subtotal: ${subTotal}</p>
+                        <p>Tax: ${taxString}</p>
+                        <p>Shipping: ${shipping}</p>
+                        <p>Total: ${total}</p>
+                        <button>Checkout</button>
+                    </div>
                 </div>
             )
         }
@@ -53,13 +54,14 @@ const Cart = (props) => {
 
         <div className="cart">
 
-            {cartInfo}
+            <div className="allCartItems">
+                {cartInfo}
+            </div>
+
             {pricing}
 
         </div>
 
-
-        
     )
 }
 export default Cart;
