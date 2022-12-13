@@ -17,8 +17,25 @@ const App = () => {
     // Set new cart quantity
     setCartQuant(cartQuant + item.quantity);
 
-    // Add Cart item to cart items
-    setCartItems(cartItems.concat(item))
+    // If the item is already in the cart, add the quantity rather than concatenating it
+    const itemInCart = cartItems.some(cartItem => cartItem.name === item.name);
+    if (itemInCart) {
+
+      for(let i = 0; i< cartItems.length; i++) {
+        setCartItems(cItem => 
+          cItem.map(obj => {
+            if (obj.name === item.name) {
+              return {...obj, quantity: (obj.quantity + item.quantity)}
+            }
+
+            return obj;
+        }))
+      }
+    }
+    // Else Concatenate item to cart items
+    else {
+      setCartItems(cartItems.concat(item))
+    }
   }
 
   return (

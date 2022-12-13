@@ -1,24 +1,60 @@
+import { useEffect, useState } from "react";
+
 const Cart = (props) => {
+
+    const [cartInfo, setCartInfo] = useState(
+        <div className="noCartItems"><h1>There Are No Items In Your Cart</h1></div>
+    )
+    const [pricing, setPricing] = useState()
+
+    // On page render
+    useEffect(() => {
+
+        // If there are items in the cart
+        if (props.cartItems.length > 0) {
+
+            // Add up prices to find subtotal
+            const subTotal = props.cartItems.reduce(function (total, item) {return total + (item.price * item.quantity)}, 0); 
+
+            // 4% sales tax
+            const tax = (subTotal * .04);
+            const taxString = tax.toFixed(2)
+
+            // Shipping
+            const shipping = 9.99
+
+            // Real total
+            const total = (subTotal + tax + shipping);
+
+            setCartInfo(props.cartItems.map(item => {
+                return (
+                    <div className="allCartItems" key={item.name}>
+                        <div className="cartItem">
+                            <p>{item.name}</p>
+                            <p>{item.price}</p>
+                            <p>{item.quantity}</p>
+                        </div>
+                    </div>
+            )}))
+
+            setPricing(                        
+                <div className="cartPricing">
+                    <p>Subtotal: ${subTotal}</p>
+                    <p>Tax: ${taxString}</p>
+                    <p>Shipping: ${shipping}</p>
+                    <p>Total: ${total}</p>
+                </div>
+            )
+        }
+    }, []);
+
 
     return (
 
-        <div className="allCartItems">
+        <div className="cart">
 
-            {props.cartItems.map(item => {
-                return (
-                    <div className="cartItem" key={item.name}>
-                        <p>{item.name}</p>
-                        <p>{item.price}</p>
-                        <p>{item.quantity}</p>
-                    </div>
-            )})}
-
-            <div className="cartPricing">
-                <p>Subtotal: $500</p>
-                <p>Tax: $8</p>
-                <p>Shipping: $10</p>
-                <p>Total: $518</p>
-            </div>
+            {cartInfo}
+            {pricing}
 
         </div>
 
