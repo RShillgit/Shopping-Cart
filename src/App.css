@@ -98,8 +98,8 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    width: 90%;
-    height: 80%;
+    width: 80%;
+    height: 90%;
 }
 .shop .shopItem .shopItemInfo img {
     height: 10rem;
