@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import shoppingCart from '../images/shoppingCart.png';
 
 const NavBar = (props) => {
     
@@ -10,7 +11,9 @@ const NavBar = (props) => {
             </div>
 
             <div className="navbar-right">
-                <Link to="/cart">Cart</Link>
+                <Link to="/cart">
+                    <img id="cartImg" src={shoppingCart} alt='Cart'/>
+                </Link>
                 <p>{props.cart}</p>
             </div>
 

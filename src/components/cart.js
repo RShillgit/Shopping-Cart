@@ -2,23 +2,45 @@ import { useEffect, useState } from "react";
 
 const Cart = (props) => {
 
-    const [cartInfo, setCartInfo] = useState(
-        <div className="noCartItems"><h1>There Are No Items In Your Cart</h1></div>
-    )
-    const [pricing, setPricing] = useState()
+    const [items, setItems] = useState(props.cartItems);
+
+    const [cartInfo, setCartInfo] = useState();
+    const [pricing, setPricing] = useState();
 
     const removeItem = (obj) => {
-        console.log(obj)
+
+        const remove = props.removeCartItem(obj);
+
+        setItems(remove);
     }
 
-    // On page render
+    // Any time the items array changes, rerender cart items div
     useEffect(() => {
+        renderCartItems();
+        renderPricing();
+    }, [items]) 
 
-        // If there are items in the cart
-        if (props.cartItems.length > 0) {
+    const renderCartItems = () => {
+
+        setCartInfo(items.map(item => {
+            return (
+                <div className="cartItem" key={item.name}>
+                    <img src={item.src} alt={item.name} />
+                    <p>Price: ${item.price} each</p>
+                    <p>Quantity: {item.quantity}</p>
+                    <div className="removeBtn">
+                        <button onClick={() => removeItem(item)}>Remove Item</button>
+                    </div>
+                </div>
+        )}))
+    }
+
+    const renderPricing = () => {
+
+        if (items.length > 0) {
 
             // Add up prices to find subtotal
-            const subTotal = props.cartItems.reduce(function (total, item) {return total + (item.price * item.quantity)}, 0); 
+            const subTotal = items.reduce(function (total, item) {return total + (item.price * item.quantity)}, 0); 
 
             // 4% sales tax
             const tax = (subTotal * .04);
@@ -29,18 +51,6 @@ const Cart = (props) => {
 
             // Real total
             const total = (subTotal + tax + shipping).toFixed(2);
-
-            setCartInfo(props.cartItems.map(item => {
-                return (
-                    <div className="cartItem" key={item.name}>
-                        <img src={item.src} alt={item.name} />
-                        <p>Price: ${item.price} each</p>
-                        <p>Quantity: {item.quantity}</p>
-                        <div className="removeBtn">
-                            <button onClick={() => removeItem(item)}>Remove Item</button>
-                        </div>
-                    </div>
-            )}))
 
             setPricing(                        
                 <div className="cartPricing">
@@ -54,8 +64,16 @@ const Cart = (props) => {
                 </div>
             )
         }
-    }, []);
-
+        // Else if the cart is empty
+        else {
+            setCartInfo(
+                <div className="noCartItems">
+                    <h1>There Are No Items In Your Cart</h1>
+                </div>
+            )
+            setPricing();
+        }
+    }
 
     return (
 

@@ -41,6 +41,22 @@ const App = () => {
     }
   }
 
+  const removeCartItem = (obj) => {
+   
+    // Remove cart item from the cartItems array
+    const unfilteredCartItems = [...cartItems];
+    const filteredCartItems = unfilteredCartItems.filter((item) => item !== obj);
+
+    setCartItems(filteredCartItems);
+    
+    // Set the new cart Quantity
+    setCartQuant(cartQuant - obj.quantity);
+
+    // Somehow rerender the cart page
+    return filteredCartItems;
+  }
+
+
   return (
     <div className='shoppingApp'>
       <BrowserRouter>
@@ -51,7 +67,7 @@ const App = () => {
             <Route path='/' element={<Homepage />} />
             <Route path='/shop' element={<Shop />}/>
             <Route path='/shop/:id' element={<ItemPage addToCart={handleAddToCart} />}/>
-            <Route path='/cart' element={<Cart cartItems={cartItems}/>} />
+            <Route path='/cart' element={<Cart removeCartItem={removeCartItem} cartItems={cartItems}/>} />
           </Routes>
 
           <div className='footer'>
