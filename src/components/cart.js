@@ -14,12 +14,13 @@ const Cart = (props) => {
         setItems(remove);
     }
 
-    // Any time the items array changes, rerender cart items div
+    // Any time the items array changes, rerender cart items and pricing
     useEffect(() => {
         renderCartItems();
         renderPricing();
     }, [items]) 
 
+    // Function that renders the allCartItems div
     const renderCartItems = () => {
 
         setCartInfo(items.map(item => {
@@ -35,6 +36,7 @@ const Cart = (props) => {
         )}))
     }
 
+    // Function that renders the cartPricing div
     const renderPricing = () => {
 
         if (items.length > 0) {
@@ -86,7 +88,6 @@ const Cart = (props) => {
             {pricing}
 
         </div>
-
     )
 }
 export default Cart;

@@ -9,8 +9,6 @@ import jeans from '../images/jeans.png';
 
 const Shop = () => {
 
-    // Put uniqid in each shopItem object and make the shopItem key=uniqid
-
     /* This Array Will Act as a database of items for sale */
     const shopItems = [
         {

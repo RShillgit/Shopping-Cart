@@ -56,7 +56,6 @@ const App = () => {
     return filteredCartItems;
   }
 
-
   return (
     <div className='shoppingApp'>
       <BrowserRouter>
