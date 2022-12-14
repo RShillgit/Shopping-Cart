@@ -58,7 +58,7 @@ const App = () => {
 
   return (
     <div className='shoppingApp'>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <BrowserRouter basename="/">
 
           <NavBar cart={cartQuant}/>
 
