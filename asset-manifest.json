@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/shopping-cart/static/css/main.8ab52bc9.css",
+    "main.js": "/shopping-cart/static/js/main.1f524de2.js",
+    "static/media/orange-shirt.png": "/shopping-cart/static/media/orange-shirt.3b968c313895e5686a79.png",
+    "static/media/black-shirt.png": "/shopping-cart/static/media/black-shirt.fdad44777169161ef883.png",
+    "static/media/gray-shirt.png": "/shopping-cart/static/media/gray-shirt.149fa42808126983ab21.png",
+    "static/media/black-polo.png": "/shopping-cart/static/media/black-polo.587259326157d3738923.png",
+    "static/media/jeans.png": "/shopping-cart/static/media/jeans.390f7070ae4693728a6d.png",
+    "static/media/white-shirt.png": "/shopping-cart/static/media/white-shirt.853f97c73f66d09dd50b.png",
+    "static/media/Ubuntu-Regular.ttf": "/shopping-cart/static/media/Ubuntu-Regular.1cbb1b79a23478cc89ad.ttf",
+    "static/media/store.jpg": "/shopping-cart/static/media/store.9367bc341e13aa643ad2.jpg",
+    "index.html": "/shopping-cart/index.html",
+    "main.8ab52bc9.css.map": "/shopping-cart/static/css/main.8ab52bc9.css.map",
+    "main.1f524de2.js.map": "/shopping-cart/static/js/main.1f524de2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8ab52bc9.css",
+    "static/js/main.1f524de2.js"
+  ]
+}
